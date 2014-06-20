@@ -43,3 +43,7 @@
         }
     });
 })();
+
+addToHomescreen();
+MBP.startupImage();
+MBP.preventScrolling();
