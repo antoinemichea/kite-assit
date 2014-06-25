@@ -1,3 +1,4 @@
+/*global addToHomescreen:true,MBP:true*/
 /**
  *
  *  Web Starter Kit
@@ -16,7 +17,7 @@
  *  limitations under the License
  *
  */
-(function () {
+(function() {
     'use strict';
 
     var navdrawerContainer = document.querySelector('.navdrawer-container');
@@ -37,13 +38,31 @@
     main.addEventListener('ontouchstart', closeMenu);
     main.addEventListener('click', closeMenu);
     menuBtn.addEventListener('click', toggleMenu);
-    navdrawerContainer.addEventListener('click', function (event) {
+    navdrawerContainer.addEventListener('click', function(event) {
         if (event.target.nodeName === 'A' || event.target.nodeName === 'LI') {
             closeMenu();
         }
     });
-})();
 
-addToHomescreen();
-MBP.startupImage();
-MBP.preventScrolling();
+    addToHomescreen();
+    MBP.startupImage();
+    MBP.preventScrolling();
+
+    var networkStatus = document.getElementById('networkStatus');
+
+    if (navigator.onLine) {
+        networkStatus.innerHTML = 'Satuts : online';
+    } else {
+        networkStatus.innerHTML = 'Satuts : offline';
+    }
+
+    window.addEventListener('offline', function(e) {
+        networkStatus.innerHTML = 'Satuts : offline';
+    }, false);
+
+    window.addEventListener('online', function(e) {
+        networkStatus.innerHTML = 'Satuts : online';
+    }, false);
+
+
+})();

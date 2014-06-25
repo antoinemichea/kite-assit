@@ -151,7 +151,7 @@ button.menu img {
     transform: translate(0, 0);
 }
 
-.app-bar, .navdrawer-container, main {
+.app-bar, .navdrawer-container, main, footer {
     transition: -webkit-transform 0.3s ease-out;
     transition: transform 0.3s ease-out;
 }
